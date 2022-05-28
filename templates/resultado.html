@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>clasificador de sentimientos para textos en español</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    />
+    <script
+      src="https://kit.fontawesome.com/4d11b85927.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+  </head>
+  <body>
+    <div class="formr">
+      <div class="container">
+        <div class="cow">
+          <nav class="navbar">
+            <div class="container">
+              <!--Logo-->
+              <a href="/" class="col-auto text-dark">
+                <i class="fa-solid fa-network-wired fa-2x p-3"> Deep</i>
+              </a>
+              <!--Anclas-->
+              <div class="col-auto">
+                <a href="/" class="text-dark p-3">Home</a>
+                <a href="/form" class="text-dark p-3">Form</a>
+              </div>
+            </div>
+          </nav>
+          <br /><br />
+          <section id="resimg">
+            <h2 class="text-center text-white">
+              <strong class="text-danger">Resultados</strong> del clasificador
+              de sentimientos (positivos/negativos) en español
+            </h2>
+            <h3 class="text-center text-white">
+              El modelo utilizado fue Machine Learning classic (regresión
+              logistica)
+            </h3>
+            <hr />
+            <h2 class="text-center text-dark">El texto:</h2>
+            <div class="text-center text-white"><h3>"{{ content }}"</h3></div>
+
+            <h2 class="text-center text-dark">Predicción:</h2>
+            <div class="text-center">
+              <h3 class="text-white">
+                El texto se clasificó como <strong>{{ prediction }}</strong>
+              </h3>
+            </div>
+            <hr class="text-danger" />
+            <form action="/gracias" method="post">
+              <h2 class="text-dark text-center">
+                ¿La clasificación fue correcta?
+              </h2>
+              <input
+                class="btn btn-danger form-control"
+                type="submit"
+                value="Aprobado"
+                name="feedback_button"
+              />
+              <input type="hidden" value="{{ prediction }}" name="prediction" />
+              <input type="hidden" value="{{ content }}" name="texto" />
+            </form>
+            <br />
+            <h2 class="text-center">
+              De lo contrario seleccione la opción correcta del sentimiento
+            </h2>
+            <br />
+            <form action="/gracias" method="post">
+              <input
+                class="btn btn-primary text-center form-control"
+                type="submit"
+                value="Sentimientos positivos"
+                name="feedback_button"
+              /><br />
+              <input type="hidden" value="Positivo" name="prediction" />
+              <input type="hidden" value="{{ content }}" name="texto" />
+            </form>
+            <form action="/gracias" method="post">
+              <input
+                class="btn btn-danger text-center form-control"
+                type="submit"
+                value="Sentimientos negativos"
+                name="feedback_button"
+              /><br />
+              <input type="hidden" value="Negativo" name="prediction" />
+              <input type="hidden" value="{{ content }}" name="texto" />
+            </form>
+
+            <hr />
+
+            <form action="/">
+              <input
+                class="btn btn-dark text-center form-control"
+                type="submit"
+                class="btn btn-primary"
+                value="Evaluar otro texto"
+              />
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script
+      src="{{ url_for('static', filename='js/jquery.min.js') }}"
+      type="text/javascript"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='js/bootstrap.min.js') }}"
+      type="text/javascript"
+    ></script>
+  </body>
+</html>

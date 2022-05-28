@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://kit.fontawesome.com/4d11b85927.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Home</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <!--Logo-->
+        <a href="/" class="col-auto text-dark">
+          <i class="fa-solid fa-network-wired fa-2x p-3"> Deep</i>
+        </a>
+        <!--Anclas-->
+        <div class="col-auto">
+          <a href="/" class="text-dark p-3">Home</a>
+          <a href="/form" class="text-dark p-3">Form</a>
+        </div>
+      </div>
+    </nav>
+
+    <section id="secimg">
+      <div class="container">
+        <div class="content-center">
+          <h1>Machine Learning classic (Sentiment Classifier)</h1>
+          <p class="topmargin-lg"><strong>Juan David Duarte Hernandez</strong></p>
+          <a href="/form" class="btn btn-light topmargin-sm">Explore Now <i class="fa-solid fa-brain"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <script
+      src="{{ url_for('static', filename='js/jquery.min.js') }}"
+      type="text/javascript"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='js/bootstrap.min.js') }}"
+      type="text/javascript"
+    ></script>
+  </body>
+</html>

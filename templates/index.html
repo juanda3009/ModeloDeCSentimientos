@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>clasificador de sentimientos en español</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    />
+    <script
+      src="https://kit.fontawesome.com/4d11b85927.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+  </head>
+  <body>
+    <div class="form">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar">
+            <div class="container">
+              <!--Logo-->
+              <a href="/" class="col-auto text-dark">
+                <i class="fa-solid fa-network-wired fa-2x p-3"> Deep</i>
+              </a>
+              <!--Anclas-->
+              <div class="col-auto">
+                <a href="/" class="text-dark p-3">Home</a>
+                <a href="/form" class="text-dark p-3">Form</a>
+              </div>
+            </div>
+          </nav>
+
+          <section id="secimg">
+            {% from "_formhelpers.html" import render_field %}
+
+            <div class="container-fluid">
+              <br /><br />
+              <h2 class="text-center text-white">
+                Clasificador de sentimientos (positivos/negativos) en español
+              </h2>
+              <hr />
+              <div class="card bg-dark text-white">
+                <div class="card-header">
+                  <h2 class="text-center">
+                    Ingrese el Sentimiento que desa evaluar
+                  </h2>
+                </div>
+                <div class="card-body text-center">
+                  <form method="post" action="/resultadoIA">
+                    <div class="mb-12">
+                      {{ render_field(form.evaluarText, cols='100', rows='5') }}
+                    </div>
+                    <div>
+                      <input
+                        type="submit"
+                        class="btn btn-danger"
+                        value="Evaluar usando IA"
+                        name="submit_btn"
+                      />
+                    </div>
+                  </form>
+                  <hr />
+                  <div id="sqlite">
+                    <form method="post" action="/sqliteReport">
+                      <input
+                        type="submit"
+                        class="btn btn-primary"
+                        value="Reporte de clasificaciones"
+                      />
+                    </form>
+                  </div>
+                </div>
+                <div class="card-footer text-center">
+                  Creado por : Luis Fdo Castellanos Guarin / Juan David Duarte
+                  Hernandez<br />
+                  2022<br />
+                  https://github.com/luisFernandoCastellanosG/Machine_learning
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <br />
+    </div>
+
+    <script
+      src="{{ url_for('static', filename='js/jquery.min.js') }}"
+      type="text/javascript"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='js/bootstrap.min.js') }}"
+      type="text/javascript"
+    ></script>
+  </body>
+</html>
